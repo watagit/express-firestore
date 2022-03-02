@@ -31,22 +31,6 @@ app.post("/messages", async (req, res) => {
   res.send(message);
 });
 
-app.post("/signup", async (req, res) => {
-  const user = {
-    email: req.body.email,
-    password: req.body.password,
-  };
-
-  const userRef = db.collection("users").doc(user.email);
-
-  const setUser = userRef.set({
-    email: user.email,
-    password: user.password,
-  });
-
-  res.send(user);
-});
-
 const port = "8080";
 app.listen(port, () => console.log(`app start listening on port ${port}`));
 
